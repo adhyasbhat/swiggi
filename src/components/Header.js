@@ -1,7 +1,8 @@
+  import {logo} from '../utils/constants'
   const HeaderComponent = () =>(
         <div className='heading'>
             <div className='logo-container'>
-            <img className='logo' src='https://cdn2.f-cdn.com/contestentries/2426851/74260034/6689bc27dfb41_thumb900.jpg'/>
+            <img className='logo' src={logo}/>
             </div>
             <div className='nav-items'>
                 <ul>

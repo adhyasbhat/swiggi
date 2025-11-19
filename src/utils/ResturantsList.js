@@ -1,4 +1,4 @@
- const Resturants = [
+ let Resturants = [
                   {
                     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
                     "info": {
