@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
+import HeaderComponent from './src/components/Header.js'
+import BodyComponent from './src/components/Body.js'
 /*
 Header
     Logo
@@ -16,35 +17,13 @@ Footer
     Contact
 
  */
-    const NavBar = () =>{
-
-    }
-    const HeaderComponent = () =>(
-        <div className='heading'>
-            <div className='logo-container'>
-            <img className='logo' src='https://cdn2.f-cdn.com/contestentries/2426851/74260034/6689bc27dfb41_thumb900.jpg'/>
-            </div>
-            <div className='nav-items'>
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
-                </ul>
-
-            </div>
-        </div>
-
-    )
-    
-    const AppContainer = () =>{
+ const AppContainer = () =>{
         return (
             <div className='app'>
             <HeaderComponent/>
+            <BodyComponent/>
             </div>
-
         ) 
-
     }
     const root = ReactDOM.createRoot(document.getElementById('root'))
 
