@@ -12,7 +12,6 @@ const Card = (props) =>{
                 <h5>{costForTwo}</h5>
                 </div>
                 {/* <h5>Delivery {sla.slaString}</h5> */}
-
             </div>
         )
     }
