@@ -6,6 +6,8 @@
  
    const BodyComponent = () =>{
         const [listOfResturants,setListOfResturants] = useState([])
+        const [filteredResturants,setFilteredResturants] = useState([])
+        const [searchText,setSearchText] = useState("")
         useEffect(()=>{
         fetchData();
         },[])
@@ -15,6 +17,7 @@
                 const json = await data.json();
                 console.log(json.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
                 setListOfResturants(json.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+                setFilteredResturants(json.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
             }
             catch(error){
                 console.log(error)
@@ -23,12 +26,27 @@
         
         return listOfResturants.length === 0 ? <Shimmer/> :(
             <div className='body'>
-                <div onClick={()=>{let filteredResturant = listOfResturants.filter((res)=>res.info.avgRating > 4.5)
-                    setListOfResturants(filteredResturant)}}>
+                <div className="filter">
+                    <div className="filter-text">
+                    <input type="text" className="search-bar" value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
+                
+                    <button className="serach-btn" onClick={()=>{
+                        const searchFilter = listOfResturants.filter((res)=>{
+                            return res.info.name.toLowerCase().includes(searchText)
+                        })
+                        setFilteredResturants(searchFilter)
+
+                    }}>Search</button>
+                    </div>
+                    
+
+                <div onClick={()=>{let filteredResturantlist = listOfResturants.filter((res)=>res.info.avgRating > 4.5)
+                    setFilteredResturants(filteredResturantlist)}}>
                     Filter top resturants
                 </div>
+                </div>
                 <div className='card-container'>
-                    {listOfResturants.map((restaurant) =>(
+                    {filteredResturants.map((restaurant) =>(
                         <Card key={restaurant.info.id} resData={restaurant}/>
                     ))}
                 </div>
