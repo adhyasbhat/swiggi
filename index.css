@@ -54,3 +54,9 @@
     position: relative;
     overflow: hidden;
 }
+.search{
+    display: flex;
+}
+.search-filter{
+    display: flex;
+}

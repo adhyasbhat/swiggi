@@ -2,6 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import HeaderComponent from './src/components/Header.js'
 import BodyComponent from './src/components/Body.js'
+import {createBrowserRouter} from 'react-router-dom'
+import Error from './src/components/Error.js'
+import About from './src/components/About.js'
+import contact from './src/components/Contact.js'
 /*
 Header
     Logo
@@ -17,6 +21,13 @@ Footer
     Contact
 
  */
+const AppRouter = createBrowserRouter([
+    {
+        path:"/",
+        element:<AppContainer/>,
+        errorElement:<Error/>
+    }
+])
  const AppContainer = () =>{
         return (
             <div className='app'>
