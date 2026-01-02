@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import HeaderComponent from './src/components/Header.js'
 import BodyComponent from './src/components/Body.js'
-import {createBrowserRouter} from 'react-router-dom'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Error from './src/components/Error.js'
 import About from './src/components/About.js'
-import contact from './src/components/Contact.js'
+import Contact from './src/components/Contact.js'
 /*
 Header
     Logo
@@ -21,13 +21,7 @@ Footer
     Contact
 
  */
-const AppRouter = createBrowserRouter([
-    {
-        path:"/",
-        element:<AppContainer/>,
-        errorElement:<Error/>
-    }
-])
+
  const AppContainer = () =>{
         return (
             <div className='app'>
@@ -36,6 +30,22 @@ const AppRouter = createBrowserRouter([
             </div>
         ) 
     }
+    const AppRouter = createBrowserRouter([
+    {
+        path:"/",
+        element:<AppContainer/>,
+        errorElement:<Error/>
+    },
+    {
+        path:"/about",
+        element:<About/>
+    },
+    {
+        path:"contact",
+        element:<Contact/>
+    }
+])
     const root = ReactDOM.createRoot(document.getElementById('root'))
 
-    root.render(<AppContainer/>)
+
+    root.render(<RouterProvider router={AppRouter}/>)
